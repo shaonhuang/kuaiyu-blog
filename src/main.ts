@@ -9,9 +9,4 @@ import App from './App.vue';
 
 const app = createApp(App);
 
-app.use(ElButton);
-app.use(ElSelect);
-
-app.use(store, key);
-app.use(router);
-app.mount('#app');
+app.use(ElButton).use(ElSelect).use(store, key).use(router).mount('#app');

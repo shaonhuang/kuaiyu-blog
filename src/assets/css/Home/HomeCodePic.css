@@ -1,0 +1,13 @@
+#codeBlock {
+  display: block;
+  padding-top: 600px;
+  margin: 0;
+}
+
+#codeDiv {
+  width: 80%;
+}
+
+#codePic {
+  text-align: left;
+}

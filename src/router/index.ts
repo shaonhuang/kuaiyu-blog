@@ -5,6 +5,12 @@ import {
   RouteRecordRaw,
 } from 'vue-router';
 import HelloWorld from '../components/HelloWorld.vue';
+
+import Home from '../views/home/Home.vue';
+import VideoPlayer from '../views/Video.vue';
+import Resume from '../views/Resume.vue';
+import Demo from '../views/Demo.vue';
+
 const routes: Array<RouteRecordRaw> = [
   {
     path: '',
@@ -15,7 +21,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/home',
     name: 'HelloWorld',
-    component: HelloWorld,
+    component: Home,
   },
   {
     path: '/about',
