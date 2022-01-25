@@ -18,18 +18,28 @@
             class="home-main-container-desc-titles"
             v-html="$t(`homePage.content`)"
           ></div>
-          <div class="home-main-container-desc-details">
-            {{ $t(`homePage.desc`) }}
-          </div>
+          <div
+            class="home-main-container-desc-details"
+            v-html="$t(`homePage.desc`)"
+          ></div>
         </div>
-        <button class="about-btn">{{ $t(`homePage.button`) }}</button>
+        <button class="about-btn" @click="handleGenerate">
+          {{ $t(`homePage.button`) }}
+        </button>
       </section>
+      <ConfettiCanvas />
     </el-main>
     <!-- <el-footer>Footer</el-footer> -->
   </el-container>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import ConfettiCanvas from "@/components/common/ConfettiCanvas.vue"
+import { showConfetti } from "@/utils/index.ts"
+function handleGenerate() {
+  showConfetti()
+}
+</script>
 <style lang="less" scoped>
 @import "./home.less";
 .el-col {
@@ -45,6 +55,7 @@
   align-items: center;
   min-height: calc((100vh - 3.6rem) - 3.6rem);
   margin: 0px auto;
+  z-index: 110;
   &-desc {
     &-greeting {
       margin-top: 2.5rem;
