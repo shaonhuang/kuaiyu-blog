@@ -2,16 +2,37 @@
   <el-header class="header-bar">
     <el-row :gutter="10">
       <el-col :xs="4" :sm="6" :md="4" :lg="3" :xl="1" style="padding-top: 1rem">
-        <img
-          alt="hyk logo"
-          src="@/assets/img/logo/homePageLogo.png"
-          style="width: 2.5rem; margin-right: 1rem; display: inline-block"
-        /><span style="position: fixed; z-index: 1001">digitalcreak</span>
+        <router-link to="/home">
+          <img
+            alt="hyk logo"
+            src="@/assets/img/logo/homePageLogo.png"
+            style="
+              width: 2.5rem;
+              margin-right: 1rem;
+              display: inline-block;
+            " /></router-link
+        ><router-link
+          to="/home"
+          style="
+            position: fixed;
+            z-index: 1001;
+            text-decoration: none;
+            color: inherit;
+            margin-right: 4rem;
+            font-weight: bold;
+            font-size: 1.5rem;
+          "
+          >digitalcreak.top</router-link
+        >
       </el-col>
       <el-col :xs="16" :sm="12" :md="16" :lg="18" :xl="22"
         ><nav class="nav-bar">
           <div v-for="item in headerBar" class="nav-bar-item">
-            <a>{{ item }}</a>
+            <router-link
+              :to="item.url"
+              style="text-decoration: none; color: inherit"
+              >{{ item.title }}</router-link
+            >
           </div>
         </nav></el-col
       >
@@ -19,7 +40,7 @@
         <el-button
           color="#626aef"
           style="color: white"
-          @click="changeLanuage(inputLanguageBool)"
+          @click="changeLanuage()"
           >{{ $t(`localeBotton`) }}</el-button
         >
       </el-col>
@@ -28,14 +49,23 @@
 </template>
 
 <script setup lang="ts">
-import { defineComponent, ref } from "vue"
+import { computed } from "vue"
+import { useStore } from "@/store"
 import { useI18n } from "vue-i18n"
-const headerBar = ["Blog", "About", "GitHub"]
-let inputLanguageBool = false
+
 const { locale } = useI18n()
-function changeLanuage(type: string) {
-  locale.value = inputLanguageBool ? "zh" : "en"
-  inputLanguageBool = !inputLanguageBool
+const store = useStore()
+const headerBar = [
+  { title: "Blog", url: "/blog" },
+  { title: "About", url: "/about" },
+  { title: "GitHub", url: "https://github.com/shaonhuang" },
+]
+const language = computed(() => store.state.globalLanguage)
+console.log(language.value)
+function changeLanuage() {
+  let type = language.value !== "zh" ? "zh" : "en"
+  store.commit("changeGlobalLanguage", type)
+  locale.value = type
 }
 </script>
 
@@ -66,6 +96,7 @@ function changeLanuage(type: string) {
   align-items: center;
   font-weight: bold;
   padding-top: 1rem;
+  padding-left: 0.3rem;
   &-item {
     a {
       min-width: 6.5rem;

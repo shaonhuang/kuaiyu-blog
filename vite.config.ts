@@ -1,27 +1,27 @@
-import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
-import path from 'path';
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import path from "path";
 
-const isProduction = process.env.NODE_ENV === 'production';
+const isProduction = process.env.NODE_ENV === "production";
 
 // https://vitejs.dev/config/
 export default defineConfig({
   root: process.cwd(),
-  base: isProduction ? './' : '',
+  base: isProduction ? "./" : "",
   // 配置中指明将会把 serve 和 build 时的模式都覆盖掉,serve 时默认 'development'，build 时默认 'production'
-  mode: 'development',
-  publicDir: 'assets',
+  mode: "development",
+  publicDir: "assets",
   resolve: {
     // 目录别名
     alias: {
-      '@': path.resolve(__dirname, './src'),
-    },
+      "@": path.resolve(__dirname, "./src")
+    }
   },
   server: {
     // 是否自动打开浏览器
     open: true,
     // 服务器主机名，如果允许外部访问，可设置为"0.0.0.0"
-    host: '0.0.0.0',
+    host: "0.0.0.0",
     // 服务器端口号
     port: 56438,
     // 设为 true ,若端口已被占用则会直接退出，而不是尝试下一个可用端口
@@ -32,20 +32,20 @@ export default defineConfig({
     force: true,
     // 代理
     proxy: {
-      '/api': {
-        target: 'http://xxx.xxx.xx',
+      "/api": {
+        target: "http://xxx.xxx.xx",
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
-      },
-    },
+        rewrite: (path) => path.replace(/^\/api/, "")
+      }
+    }
   },
   build: {
     // 压缩
-    minify: 'esbuild',
-    assetsDir: '',
+    minify: "esbuild",
+    assetsDir: "",
     outDir: `./dist/${process.env.VITE_ENV}`,
     // 进行压缩计算
-    brotliSize: false,
+    brotliSize: false
   },
-  plugins: [vue()],
+  plugins: [vue()]
 });

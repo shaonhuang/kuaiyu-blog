@@ -23,21 +23,19 @@
             v-html="$t(`homePage.desc`)"
           ></div>
         </div>
-        <button class="about-btn" @click="handleGenerate">
+        <button class="about-btn" @click="goAbout">
           {{ $t(`homePage.button`) }}
         </button>
       </section>
-      <ConfettiCanvas />
     </el-main>
     <!-- <el-footer>Footer</el-footer> -->
   </el-container>
 </template>
 
 <script setup lang="ts">
-import ConfettiCanvas from "@/components/common/ConfettiCanvas.vue"
-import { showConfetti } from "@/utils/index.ts"
-function handleGenerate() {
-  showConfetti()
+import router from "@/router"
+function goAbout() {
+  router.push("/about")
 }
 </script>
 <style lang="less" scoped>
