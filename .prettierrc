@@ -1,7 +1,22 @@
 {
-  "eslintIntegration": true,
-  "stylelintIntegration": true,
-  "tabWidth": 2,
-  "singleQuote": true,
-  "semi": true
+  "semi": false,
+  "overrides": [
+    {
+      "files": ["*.js", "*.ts"],
+      "options": {
+        "semi": true,
+        "eslintIntegration": true,
+        "stylelintIntegration": true,
+        "tabWidth": 2,
+        "doubleQuote": true,
+        "trailingComma": "none"
+      }
+    },
+    {
+      "files": ["*.json"],
+      "options": {
+        "tabWidth": 4
+      }
+    }
+  ]
 }
