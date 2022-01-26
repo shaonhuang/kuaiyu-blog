@@ -23,19 +23,52 @@ setTimeout((_) => {
 .about-container {
   position: relative;
   z-index: 110;
-  width: 800px;
   margin: 0px auto;
   padding: 10rem 0px;
   text-align: left;
+  @media only screen and (min-width: 320px) {
+    width: 18rem;
+  }
+  @media only screen and (min-width: 640px) {
+    width: 18rem;
+  }
+  @media only screen and (min-width: 750px) {
+    width: 32rem;
+  }
+  @media only screen and (min-width: 1242px) {
+    width: 50rem;
+  }
   &-title {
     margin-bottom: 2rem;
     font-weight: bold;
-    font-size: 1.5rem;
+    @media only screen and (min-width: 320px) {
+      font-size: 1.5rem;
+    }
+    @media only screen and (min-width: 640px) {
+      font-size: 1.5rem;
+    }
+    @media only screen and (min-width: 750px) {
+      font-size: 1.5rem;
+    }
+    @media only screen and (min-width: 1242px) {
+      font-size: 1.5rem;
+    }
   }
   &-content {
     margin-bottom: 2rem;
-    font-size: 1rem;
     line-height: 1.8;
+    @media only screen and (min-width: 320px) {
+      font-size: 1rem;
+    }
+    @media only screen and (min-width: 640px) {
+      font-size: 1rem;
+    }
+    @media only screen and (min-width: 750px) {
+      font-size: 1rem;
+    }
+    @media only screen and (min-width: 1242px) {
+      font-size: 1rem;
+    }
   }
 }
 </style>

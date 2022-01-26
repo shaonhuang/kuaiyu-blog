@@ -12,19 +12,19 @@
         </div>
         <div class="home-main-container-desc">
           <div class="home-main-container-desc-greeting">
-            {{ $t(`homePage.greeting`) }}
+            {{ $t("homePage.greeting") }}
           </div>
           <div
             class="home-main-container-desc-titles"
-            v-html="$t(`homePage.content`)"
+            v-html="$t('homePage.content')"
           ></div>
           <div
             class="home-main-container-desc-details"
-            v-html="$t(`homePage.desc`)"
+            v-html="$t('homePage.desc')"
           ></div>
         </div>
         <button class="about-btn" @click="goAbout">
-          {{ $t(`homePage.button`) }}
+          {{ $t("homePage.button") }}
         </button>
       </section>
     </el-main>
@@ -54,6 +54,18 @@ function goAbout() {
   min-height: calc((100vh - 3.6rem) - 3.6rem);
   margin: 0px auto;
   z-index: 110;
+  @media only screen and (min-width: 320px) {
+    margin-top: 3rem;
+  }
+  @media only screen and (min-width: 640px) {
+    margin-top: 3rem;
+  }
+  @media only screen and (min-width: 750px) {
+    margin-top: 3rem;
+  }
+  @media only screen and (min-width: 1242px) {
+    margin-top: 0rem;
+  }
   &-desc {
     &-greeting {
       margin-top: 2.5rem;

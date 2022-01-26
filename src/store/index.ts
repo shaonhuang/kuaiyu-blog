@@ -15,7 +15,6 @@ export const store = createStore<State>({
   mutations: {
     changeGlobalLanguage(state, type) {
       state.globalLanguage = type;
-      console.log(state.globalLanguage, "state.globalLanguage");
     },
     increment(state) {
       state.count++;

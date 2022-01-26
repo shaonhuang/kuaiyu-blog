@@ -5,7 +5,7 @@ import en from "./languages/en"; // 英文语言包
 // 实例化I18n
 const i18n = createI18n({
   locale: "zh!", // 初始化配置语言
-  // silentFallbackWarn: true,
+  silentFallbackWarn: true,
   legacy: false,
   globalInjection: true,
   messages: {

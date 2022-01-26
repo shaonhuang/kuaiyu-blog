@@ -3,20 +3,6 @@
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 // import HelloWorld from './components/HelloWorld.vue';
 import HeaderBar from "./components/HeaderBar.vue"
-// onMounted(() => {
-//   //监听ref定义的值
-//   watch(
-//     num,
-//     (newValue, oldValue) => {
-//       console.log(newValue) //1
-//       console.log(oldValue) //0
-//     },
-//     {
-//       immediate: false, //默认为false,是否在页面加载后先触发一次回调
-//       deep: true, //默认为false,是否开启深度监视
-//     }
-//   )
-// })
 </script>
 
 <template>
