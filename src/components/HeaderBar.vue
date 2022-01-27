@@ -39,7 +39,7 @@
           style="line-height: 1.5rem; padding-top: 0.7rem; margin-left: -1.5rem"
           class="language-btn"
         >
-          <div v-if="intViewportWidth <= 390">
+          <div v-if="intViewportWidth <= 390 && route.path !== '/resume'">
             <el-button
               circle
               style="
@@ -56,9 +56,8 @@
               />
             </el-button>
           </div>
-
           <el-button
-            v-else
+            v-else-if="intViewportWidth > 390"
             color="#626aef"
             style="
               background-color: var(--color-background);
@@ -106,7 +105,6 @@
         >
       </div>
       <el-button
-        color="#626aef"
         style="
           background-color: var(--color-background);
           border-color: var(--color-text);
@@ -121,6 +119,7 @@
 <script setup lang="ts">
 import { ref, computed } from "vue"
 import { useStore } from "@/store"
+import { useRoute } from "vue-router"
 import { useI18n } from "vue-i18n"
 
 const { locale } = useI18n()
@@ -131,7 +130,8 @@ const headerBar = [
   { title: "GitHub", url: "https://github.com/shaonhuang" },
 ]
 const language = computed(() => store.state.globalLanguage)
-// const contentIcon = computed(() =>)
+const route = useRoute()
+console.log("当前路由", route.path)
 const drawer = ref(false)
 let intViewportWidth = window.innerWidth
 

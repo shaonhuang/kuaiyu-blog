@@ -2,6 +2,11 @@
   <section class="about-container">
     <h3 class="about-container-title">{{ $t("aboutPage.title") }}</h3>
     <div class="about-container-content" v-html="$t('aboutPage.content')"></div>
+    <div>
+      <router-link to="/resume" style="text-decoration: none; color: inherit">{{
+        $t("aboutPage.toResume")
+      }}</router-link>
+    </div>
   </section>
   <ConfettiCanvas />
 </template>
