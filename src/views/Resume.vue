@@ -1,25 +1,14 @@
-
 <template>
   <div class="container">
-    <pdf :src="srcPath"></pdf>
+    <!-- <Document :file="srcPath" /> -->
   </div>
 </template>
 
-<script>
-import pdf from "vue3-pdf";
+<script setup lang="ts">
 
-export default {
-  components: {
-    pdf,
-  },
-  data() {
-    return {
-      srcPath: `${window.location.origin}/pdf/cv_AfterBaidu.pdf`,
-      currentPage: 0,
-      pageCount: 0,
-    };
-  },
-};
+const srcPath = `${window.location.origin}/pdf/cv_AfterBaidu.pdf`
+const currentPage = 0
+const pageCount = 0
 </script>
 <style lang="less">
 .container {

@@ -39,6 +39,14 @@ const routes: Array<RouteRecordRaw> = [
     component: About
   },
   {
+    path: "/resume",
+    name: "Resume",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: Resume
+  },
+  {
     path: "/:currentPath(.*)*",
     redirect: (_) => {
       return { path: "/404" };

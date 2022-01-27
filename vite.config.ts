@@ -17,6 +17,9 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src")
     }
   },
+  define: {
+    "process.env": {}
+  },
   server: {
     // 是否自动打开浏览器
     open: true,
@@ -43,7 +46,7 @@ export default defineConfig({
     // 压缩
     minify: "esbuild",
     assetsDir: "",
-    outDir: `./dist/${process.env.VITE_ENV}`,
+    outDir: `./dist`,
     // 进行压缩计算
     brotliSize: false
   },
