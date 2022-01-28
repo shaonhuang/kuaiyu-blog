@@ -150,10 +150,10 @@ const setLoading = () => {
   }, 1600)
 }
 setLoading()
-const resumePath = ref("public/pdf/resume-zh.pdf")
+const resumePath = ref("/pdf/resume-zh.pdf")
 function changeCV(idx: number) {
   resumePath.value =
-    "public/pdf/" +
+    "/pdf/" +
     { "1": "cv_AfterBaidu.pdf", "2": "resume-zh.pdf", "3": "resume.pdf" }[idx]
   drawer.value = false
 }

@@ -10,7 +10,6 @@ export default defineConfig({
   base: isProduction ? "./" : "",
   // 配置中指明将会把 serve 和 build 时的模式都覆盖掉,serve 时默认 'development'，build 时默认 'production'
   mode: "development",
-  publicDir: "assets",
   resolve: {
     // 目录别名
     alias: {
@@ -18,7 +17,7 @@ export default defineConfig({
     }
   },
   define: {
-    "process.env": {}
+    "process.env": { NODE_ENV: "development" }
   },
   server: {
     // 是否自动打开浏览器
