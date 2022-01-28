@@ -111,27 +111,20 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from "vue"
-import { useRoute } from "vue-router"
+import {
+  ref,
+  computed,
+  onBeforeMount,
+  onBeforeUnmount,
+  getCurrentInstance,
+  nextTick,
+} from "vue"
+import router from "@/router"
 import { useStore } from "@/store"
 import { isMobile, isMobileTablet } from "@/utils/index.ts"
-let orientation =
-  (screen.orientation || {}).type ||
-  screen.mozOrientation ||
-  screen.msOrientation
 
-if (orientation === "landscape-primary") {
-  console.log("That looks good.")
-} else if (orientation === "landscape-secondary") {
-  console.log("Mmmh... the screen is upside down!")
-} else if (
-  orientation === "portrait-secondary" ||
-  orientation === "portrait-primary"
-) {
-  console.log("Mmmh... you should rotate your device to landscape")
-} else if (orientation === undefined) {
-  console.log("The orientation API isn't supported in this browser :(")
-}
+const instance = getCurrentInstance()
+
 const device = isMobileTablet() ? (isMobile() ? "mobile" : "tablet") : "desktop"
 const deviceInnerWidth = window.innerWidth
 const pdfHeight = { mobile: "90%", tablet: "96%", desktop: "90%" }[device]
@@ -139,9 +132,15 @@ const pdfWidth = { mobile: "80%", tablet: "80%", desktop: "50%" }[device]
 const drawerSize = { mobile: "50%", tablet: "30%", desktop: "16%" }[device]
 const drawer = ref(false)
 const cvVersion = [1, 2, 3]
-const route = useRoute()
 const store = useStore()
-const intViewportWidth = window.innerWidth
+const intViewportWidth = ref(window.innerWidth)
+onBeforeMount(() => {
+  window.addEventListener("orientationchange", function (event) {
+    intViewportWidth.value = window.innerWidth
+    // TODO It does not have to refresh whole site;option(use $forceUpdate)
+    window.location.reload()
+  })
+})
 const loading = ref(true)
 const setLoading = () => {
   loading.value = true
@@ -171,6 +170,9 @@ function downloadCV() {
   document.body.removeChild(a)
   drawer.value = false
 }
+onBeforeUnmount(() => {
+  window.removeEventListener("orientationchange", () => {})
+})
 </script>
 <style lang="less">
 #skeleton {

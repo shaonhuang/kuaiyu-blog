@@ -131,7 +131,6 @@ const headerBar = [
 ]
 const language = computed(() => store.state.globalLanguage)
 const route = useRoute()
-console.log("当前路由", route.path)
 const drawer = ref(false)
 let intViewportWidth = window.innerWidth
 
@@ -140,15 +139,6 @@ function changeLanuage() {
   store.commit("changeGlobalLanguage", type)
   locale.value = type
 }
-
-// function readFile(file: string) {
-//   var reader = new FileReader()
-//   reader.onload = function (evt) {
-//     console.log(evt.target.result, "test")
-//   }
-//   reader.readAsText(file)
-// }
-// readFile("@/assets/assets/icons/svg/content.svg")
 </script>
 
 <style lang="less">
