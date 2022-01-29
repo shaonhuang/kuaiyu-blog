@@ -7,6 +7,13 @@
         $t("aboutPage.toResume")
       }}</router-link>
     </div>
+    <div v-if="false">
+      <a
+        href="https://www.huangyukuai.me"
+        style="text-decoration: none; color: inherit"
+        >{{ $t("aboutPage.toV1Blog") }}</a
+      >
+    </div>
   </section>
   <ConfettiCanvas />
 </template>

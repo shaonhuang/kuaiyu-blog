@@ -13,7 +13,8 @@ export default {
     title: "😉, Welcome to my Blog",
     content:
       "My name is <strong>Sharon Huang</strong>. I'm a graduate that majored in Digital Media Technology(DMT). And I will start my career as a FE programmer.<br><br>As a FE, I appreciate those websites which have a unique style. And I enjoy the inspiration it brings me. I like designs, I will try my best to make my work bring people the most comfortable. If you want to contact me. Here is my contact.<br><br>Email: yukuaihuang&#64;icloud.com",
-    toResume: "👉 click to my resume"
+    toResume: "👉 click to my resume",
+    toV1Blog: "🎉 go to Old Blog (Chinese Version)"
   },
   blogPage: {
     desc: "I'm not ready yet!😘"
