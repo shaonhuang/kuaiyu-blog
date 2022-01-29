@@ -59,17 +59,12 @@ const videoHeight =
 const videoWidth =
   (window.innerWidth * { mobile: 60, tablet: 80, desktop: 30 }[device]) / 100
 
-console.log()
-
 function withQuery(idx) {
-  console.log(idx, router.fullPath)
   try {
     if (router.fullPath == "/projects") {
       return true
     }
     const query = router.fullPath.split("/projects?query=")[1]
-    console.log(idx, query, query === idx + 1)
-
     return parseInt(query, 10) === idx + 1
   } catch (e) {
     return false
