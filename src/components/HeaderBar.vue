@@ -94,6 +94,7 @@
         <router-link
           :to="item.url"
           style="text-decoration: none; color: inherit"
+          @click="drawer = false"
           >{{ item.title }}</router-link
         >
       </div>
@@ -138,6 +139,7 @@ function changeLanuage() {
   let type = language.value !== "zh" ? "zh" : "en"
   store.commit("changeGlobalLanguage", type)
   locale.value = type
+  drawer.value = false
 }
 </script>
 

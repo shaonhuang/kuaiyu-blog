@@ -179,8 +179,8 @@ onBeforeUnmount(() => {
   --el-skeleton-color: var(--color-text);
 }
 .resume-container {
-  margin-top: 4.6rem;
-  height: 100%;
+  padding-top: 4.6rem;
+  height: 90%;
   width: 100%;
 }
 .resume-side-bar {

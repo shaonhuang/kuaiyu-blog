@@ -9,8 +9,9 @@ import HelloWorld from "../components/HelloWorld.vue";
 import Home from "../views/home/Home.vue";
 import About from "../views/About.vue";
 import Blog from "../views/Blog.vue";
-import VideoPlayer from "../views/Video.vue";
+import Project from "../views/Project.vue";
 import Resume from "../views/Resume.vue";
+import NotFound from "../views/NotFound.vue";
 import Demo from "../views/Demo.vue";
 
 const routes: Array<RouteRecordRaw> = [
@@ -22,7 +23,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/home",
-    name: "HelloWorld",
+    name: "Home",
     component: Home
   },
   {
@@ -47,10 +48,16 @@ const routes: Array<RouteRecordRaw> = [
     component: Resume
   },
   {
+    path: "/projects",
+    name: "Projects",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: Project
+  },
+  {
     path: "/:currentPath(.*)*",
-    redirect: (_) => {
-      return { path: "/404" };
-    }
+    component: NotFound,
   }
 ];
 const router = createRouter({
