@@ -50,6 +50,7 @@ const projectsPath = [
   "proteinrecorder2.mp4",
   "wechat_mini_program.mp4",
   "geek_demo.mp4",
+  "ad-helper.mov",
 ]
 const router = useRoute()
 const device = isMobileTablet() ? (isMobile() ? "mobile" : "tablet") : "desktop"
