@@ -35,10 +35,19 @@ jobs:
       - name: 构建文件
         run: yarn build--without-tsc-check
 
+      - name: copy file via ssh key
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.cs_IP }}
+          username: ${{ secrets.cs_USERNAME }}
+          key: ${{ secrets.cs_IDENTITY }}
+          source: "dist"
+          target: "~"
+
+
       - name: 将构建后的文件推送到个人服务器
         run: |
           echo cs_IDENTITY > pass.pem
-          scp -i ./pass.pem ./dist cs_USERNAME@cs_IP:~
           ssh -i ./pass.pem cs_USERNAME@cs_IP "mv ~/dist file_path;rm -rf ~/dist"
           echo "GitHub Actions Auto Builder at $(date +'%Y-%m-%d %H:%M:%S')"
         env:
