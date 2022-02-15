@@ -1,0 +1,48 @@
+name: 博客自动化部署
+
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - ".gitignore"
+      - "**/README.md"
+      - "yarn.lock"
+
+jobs:
+  blog-cicd:
+    name: 构建博客并发布到个人服务器
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout codes
+        uses: actions/checkout@v2.3.4
+
+      - name: 设置 node.js 运行环境
+        uses: actions/setup-node@v2.1.2
+        with:
+          node-version: "12.x"
+
+      - name: 缓存依赖
+        uses: actions/cache@v2.1.3
+        with:
+          path: "**/node_modules"
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+
+      - name: 安装依赖
+        run: yarn install
+
+      - name: 构建文件
+        run: yarn build--without-tsc-check
+
+      - name: 将构建后的文件推送到个人服务器
+        run: |
+          echo cs_IDENTITY > pass.pem
+          scp -i ./pass.pem ./dist cs_USERNAME@cs_IP:~
+          ssh -i ./pass.pem cs_USERNAME@cs_IP "mv ~/dist /file_path;rm -rf ~/dist"
+        run: echo "GitHub Actions Auto Builder at $(date +'%Y-%m-%d %H:%M:%S')"
+        env:
+          cs_USERNAME: ${{ secrets.cs_USERNAME }}
+          cs_IDENTITY: ${{ secrets.cs_IDENTITY }}
+          cs_IP: ${{ secrets.cs_IP }}
+          file_path: ${{ secrets.cs_FILEPATH}}
