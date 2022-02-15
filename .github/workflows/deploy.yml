@@ -41,6 +41,6 @@ jobs:
           host: ${{ secrets.cs_IP }}
           username: ${{ secrets.cs_USERNAME }}
           key: ${{ secrets.cs_IDENTITY }}
-          rm: ${{ secrets.cs_FILEPATH }}
+          rm: "true"
           source: "dist"
           target: ${{ secrets.cs_FILEPATH }}
