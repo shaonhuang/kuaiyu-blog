@@ -1,7 +1,7 @@
 export default {
-  message: {
-    Home: "HOME",
-    About: "ABOUT"
+  headerBar:{
+    blog: 'Blog',
+    about: 'About'
   },
   homePage: {
     greeting: "Hi,I'm shaonhuang 😎",

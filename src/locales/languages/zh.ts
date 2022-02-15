@@ -1,7 +1,7 @@
 export default {
-  message: {
-    Home: "首页",
-    About: "关于"
+  headerBar:{
+    blog: '博客',
+    about: '关于个人'
   },
   homePage: {
     greeting: "Hi,我是黄宇快 😎",

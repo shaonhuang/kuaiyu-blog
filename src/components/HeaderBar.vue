@@ -22,7 +22,7 @@
             <router-link
               :to="item.url"
               style="text-decoration: none; color: inherit"
-              >{{ item.title }}</router-link
+              >{{ $t(`headerBar.${item.title.toLowerCase()}`) }}</router-link
             >
           </div>
           <div class="nav-bar-item">
@@ -95,7 +95,7 @@
           :to="item.url"
           style="text-decoration: none; color: inherit"
           @click="drawer = false"
-          >{{ item.title }}</router-link
+          >{{ $t(`headerBar.${item.title.toLowerCase()}`) }}</router-link
         >
       </div>
       <div class="nav-bar-item" style="min-height: 4.5rem">
