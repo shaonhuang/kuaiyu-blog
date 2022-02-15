@@ -39,7 +39,7 @@ jobs:
         run: |
           echo cs_IDENTITY > pass.pem
           scp -i ./pass.pem ./dist cs_USERNAME@cs_IP:~
-          ssh -i ./pass.pem cs_USERNAME@cs_IP "mv ~/dist ${{file_path}};rm -rf ~/dist"
+          ssh -i ./pass.pem cs_USERNAME@cs_IP "mv ~/dist file_path;rm -rf ~/dist"
           echo "GitHub Actions Auto Builder at $(date +'%Y-%m-%d %H:%M:%S')"
         env:
           cs_USERNAME: ${{ secrets.cs_USERNAME }}
