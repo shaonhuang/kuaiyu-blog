@@ -42,5 +42,5 @@ jobs:
           username: ${{ secrets.cs_USERNAME }}
           key: ${{ secrets.cs_IDENTITY }}
           rm: "true"
-          source: "dist"
+          source: "dist/*"
           target: ${{ secrets.cs_FILEPATH }}
