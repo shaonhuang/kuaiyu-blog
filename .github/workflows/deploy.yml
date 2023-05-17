@@ -16,12 +16,12 @@ jobs:
 
     steps:
       - name: Checkout codes
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v3
 
       - name: 设置 node.js 运行环境
-        uses: actions/setup-node@v2.1.2
+        uses: actions/setup-node@v3
         with:
-          node-version: "12.x"
+          node-version: "16.x"
 
       - name: 缓存依赖
         uses: actions/cache@v2.1.3
@@ -30,7 +30,7 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
 
       - name: 安装依赖
-        run: yarn install
+        run: yarn
 
       - name: 构建文件
         run: yarn build--without-tsc-check
