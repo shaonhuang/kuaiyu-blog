@@ -1,18 +1,15 @@
 <template>
   <div id="putInMiddle">
-    <baidu-table></baidu-table>
+    <h1>演示视频</h1>
+    <img src="@/assets/img/demo/baidu.png" alt="" />
   </div>
 </template>
 
 <script>
-import BaiduTable from "@/components/common/baidu-table/index.vue";
-
 export default {
   name: "Demo",
-  components: {
-    "baidu-table": BaiduTable,
-  },
-};
+  components: {},
+}
 </script>
 
 <style>

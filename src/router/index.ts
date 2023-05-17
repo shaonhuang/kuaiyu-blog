@@ -56,8 +56,13 @@ const routes: Array<RouteRecordRaw> = [
     component: Project
   },
   {
+    path: "/demo",
+    name: "Demo",
+    component: Demo
+  },
+  {
     path: "/:currentPath(.*)*",
-    component: NotFound,
+    component: NotFound
   }
 ];
 const router = createRouter({
