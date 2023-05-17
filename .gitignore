@@ -3,3 +3,12 @@ node_modules
 dist
 dist-ssr
 *.local
+
+# Yarn 3 files
+/.pnp
+.pnp.js
+.pnp.cjs
+.yarn/cache
+.yarn/unplugged
+.yarn/install-state.gz
+
